@@ -27,6 +27,20 @@ th, td {
 
 </head>
 <body class="bg-light">
+<?php if (isset($_GET['status']) && $_GET['status'] === 'csv'): ?>
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1055">
+    <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          ✅ <?= $_GET['count'] ?? 0 ?> certificates imported from CSV successfully!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>
+
+  
   <div class="container py-5">
     <div class="card shadow p-4">
       <h2 class="mb-4">Add Certificate</h2>
@@ -71,8 +85,12 @@ th, td {
             <input name="company_name" class="form-control" value="Encodingo" required>
           </div>
         </div>
-        <button class="btn btn-success">Add Certificate</button>
-        <a href="logout.php" class="btn btn-danger">Logout</a>
+        <div class="d-flex gap-2 mt-3">
+  <button class="btn btn-success">Add Certificate</button>
+  <a href="upload_csv.php" class="btn btn-warning">📁 Upload CSV</a>
+  <a href="logout.php" class="btn btn-danger">Logout</a>
+</div>
+
 
       </form>
       <?php
@@ -136,5 +154,7 @@ document.getElementById('searchInput').addEventListener('keyup', liveSearch);
 
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
