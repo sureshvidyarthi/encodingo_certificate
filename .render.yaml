@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: encodingo-cert
+    name: encodingo-certificate
     env: php
     plan: free
     buildCommand: ""
