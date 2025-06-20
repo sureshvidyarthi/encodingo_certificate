@@ -1,5 +1,4 @@
 <?php
-// 🔒 No space or blank line before this line
 session_start();
 include 'db.php';
 
